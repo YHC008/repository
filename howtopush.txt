@@ -1,0 +1,53 @@
+注册github
+
+查看本机有无.ssh目录，如果有，再看看这个目录下		"
+有没有id_rsa和id_rsa.pub这两个文件，
+如果已经有了，可直接跳到下一步。如果没有，
+打开Shell（Windows下打开Git Bash），创建SSH Key
+$ssh-keygen -t rsa -C "705022218@qq.com"
+
+创建ssh过程中一直默认回车
+最后会创建.ssh目录，里面是id_rsa和id_rsa.pub
+路径在C:\Users\Administrator\.ssh
+
+在git的ssh中添加ssh，把你的pud复制进去确认即可
+
+新建文件夹first
+
+进入first
+
+打开bash，初始化		
+$git init
+
+创建文件001.txt
+
+加入文件			
+$git add 001.txt
+
+传到本地库 			
+$git commit 001.txt -m “注释”  //-m是加注释 引号内为注释内容
+
+连接你在远程端创的库		
+$git remote add origin git@github.com:YHC008/repository  // 用户名/库的名字
+
+添加后，远程库的名字就是origin，这是Git默认的叫法，
+也可以改成别的，但是origin这个名字一看就知道是远程库
+
+下一步，就可以把本地库的所有内容推送到远程库上		
+$git push -u origin master
+
+把本地库的内容推送到远程，用git push命令，
+实际上是把当前分支master推送到远程。
+
+由于远程库是空的，我们第一次推送master分支时，加上了-u参数，
+Git不但会把本地的master分支内容推送的远程新的master分支，
+还会把本地的master分支和远程的master分支关联起来，
+在以后的推送或者拉取时就可以简化命令
+
+第一次push -u时会出现YES/NO,输入YES回车
+
+之后再次推送到远程端就不用先连接远程端，即git add ->git commit -> git push(不用加-u)
+
+
+详细教程百度git 廖雪峰
+
